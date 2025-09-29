@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 // https://panda-market-api-crud.vercel.app/docs
-const URL = `http://localhost:3000/articles`; //가짜주소
+const URL = `https://panda-market-api-crud.vercel.app`;
 
 export function getArticleList(page, pageSize, keyword) {
   return axios
-    .get(URL, {
+    .get(URL + '/articles', {
       params: {
         page,
         pageSize,
@@ -17,11 +17,35 @@ export function getArticleList(page, pageSize, keyword) {
       return response.data;
     })
     .catch((error) => {
-      console.error('실패! :', error.maessege);
+      console.error('실패! :', error.message);
+      if (error.response) {
+        console.log(`${error.response.status}`);
+        console.log(error.response.data);
+      }
     });
 }
 
-// export async function getArticle()
-// export async function createArticle();
-// export async function patchArticle();
-// export async function deleteArticle();
+export function getArticle() {
+  return axios
+    .get(URL + '/articles', {})
+    .then((response) => {
+      console.log('성공! :', response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error('실패! :', error.message);
+      if (error.response) {
+        console.log(`${error.response.status}`);
+        console.log(error.response.data);
+      }
+    });
+}
+// export function createArticle() {
+// return axios
+// };
+// export function patchArticle() {
+// return axios
+// };
+// export function deleteArticle() {
+// return axios
+// };
