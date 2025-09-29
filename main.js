@@ -3,17 +3,19 @@ import ElectronicProduct from './ElectronicProduct.js';
 import Article from './Article.js';
 import { getArticleList } from './ArticleService.js';
 
-console.log('테스트 시작 시간');
+console.log('=====테스트 시작=====');
 const laptop = new ElectronicProduct(
-  'galaxy book',
-  '평범한 삼성 노트북이다.',
-  1000000,
+  '건전지',
+  '평범한 건전지이다...',
+  5500,
   [],
   [],
   0
 );
+
 console.log(laptop.name);
 console.log(laptop.description);
-console.log(laptop.favorite());
-console.log(laptop.favorite());
+console.log(`찜하기 수: ${laptop.favorite()}`);
+console.log(`찜하기 수: ${laptop.favorite()}`);
 getArticleList(1, 10, '테스트'); // getArticleList 테스트
+console.log('=====테스트 완료=====');
