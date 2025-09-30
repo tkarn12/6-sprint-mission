@@ -27,6 +27,8 @@ export function getArticleList(page, pageSize, keyword) {
     });
 }
 
+//------------getArticle--------------------------------------
+
 export function getArticle() {
   return axios
     .get(URL + '/articles', {})
@@ -45,14 +47,24 @@ export function getArticle() {
       console.log('=====[gerArticle] 테스트 완료=====');
     });
 }
+//------------createArticle--------------------------------------
 
 export function createArticle(articleData) {
-  const newArticleData = {
-    title: '고양이',
-    content: '검은 고양이',
-    image: 'https://www.catnews.net/bbs/board.php?bo_table=G202&wr_id=55736',
-  };
-  return axios.post(URL + '/articles', newArticleData);
+  return axios
+    .post(URL + '/articles', articleData)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.error('실패!!!', error.message);
+      if (error.response) {
+        console.log(`${error.response.status}`);
+        console.log(`${error.response.data}`);
+      }
+    })
+    .finally(() => {
+      console.log(`===생성 실험 끝===`);
+    });
 }
 
 // return axios
