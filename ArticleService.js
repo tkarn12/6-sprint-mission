@@ -67,12 +67,37 @@ export function createArticle(articleData) {
       console.log(`===생성 실험 끝===`);
     });
 }
+//--------------------patchArticle------------------
+export function patchArticle(id, articleData) {
+  return axios
+    .patch(`${URL}/articles/${id}`, articleData)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(`실패!!!`, error.message);
+      if (error.response) {
+        console.log(`${error.response.status}`);
+        console.log(`${error.response.data}`);
+      }
+    })
+    .finally(() => {
+      console.log(`===패치 실험 끝===`);
+    });
+}
 
-// return axios
-// };
-// export function patchArticle() {
-// return axios
-// };
-// export function deleteArticle() {
-// return axios
-// };
+//-----------------deleteArticle----------------------
+export function deleteArticle() {
+  return axios
+    .delete(`${URL}/articles/${id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(`${error.response.status}`);
+      console.log(`${error.response.data}`);
+    })
+    .finally(() => {
+      console.log(`=== 게시물 삭제 실험 끝===`);
+    });
+}
