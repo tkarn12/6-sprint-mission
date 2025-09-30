@@ -3,6 +3,7 @@ import axios from 'axios';
 // https://panda-market-api-crud.vercel.app/docs
 const URL = `https://panda-market-api-crud.vercel.app`;
 
+//-------------getArticleList(1,1,'')------------------------
 export function getArticleList(page, pageSize, keyword) {
   return axios
     .get(URL + '/articles', {
@@ -27,11 +28,11 @@ export function getArticleList(page, pageSize, keyword) {
     });
 }
 
-//------------getArticle--------------------------------------
+//------------getArticle(id)--------------------------------------
 
 export function getArticle(id) {
   return axios
-    .get(`${URL}'/articles/'${id}`, {})
+    .get(`${URL}/articles/${id}`)
     .then((response) => {
       console.log('성공! :', response.data);
       return response.data;

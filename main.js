@@ -1,7 +1,7 @@
 import Product from './Product.js';
 import ElectronicProduct from './ElectronicProduct.js';
 import Article from './Article.js';
-import { createArticle } from './ArticleService.js';
+import { createArticle, getArticle, getArticleList } from './ArticleService.js';
 
 const powerNeo = new ElectronicProduct(
   '네오 건전지',
@@ -12,20 +12,23 @@ const powerNeo = new ElectronicProduct(
   0
 );
 
-// console.log(powerNeo.name);
-// console.log(powerNeo.description);
-// console.log(`찜하기 수: ${powerNeo.favorite()}`);
-// console.log(`찜하기 수: ${powerNeo.favorite()}`);
-// getArticleList(1, 1, '테스트')
-
 console.log('=====테스트 시작=====');
 
+//-------------- 포스트 한것 구하기--------------4715, 4718
+// getArticle(id);
+
+/* ----------------고양이 포스트하기----------------------
 const articleData = {
   title: '고양이',
   content: '고양이',
   image:
     'https://images.mypetlife.co.kr/content/uploads/2022/05/27120923/52041878798_acf34e8861_b.jpg',
 };
-createArticle(articleData);
+createArticle(articleData).then((createdArticle) => {
+  // 성공 시 게시글 아이디 얻어오기
+  console.log(`성공! ID: ${createdArticle.id}`);
+});
+---------------------------------------------------------
+*/
 
-// console.log('=====테스트 완료=====');
+// getArticleList(1, 10, '고양이');
