@@ -5,21 +5,17 @@ const URL = `https://panda-market-api-crud.vercel.app`;
 
 //-------------getArticleList(1,1,'')------------------------
 export function getArticleList(page, pageSize, keyword) {
+  const q = `?page=${page}&pageSize=${pageSize}&keyword=${keyword}`;
+  const finURL = `${URL}/articles/${q}`;
   return axios
-    .get(URL + '/articles', {
-      params: {
-        page,
-        pageSize,
-        keyword,
-      },
-    })
+    .get(finURL)
     .then((response) => {
       console.log(`성공!`, response.data);
     })
     .catch((error) => {
       console.error('실패! :', error.message);
       if (error.response) {
-        console.log(`실패 어쩌구 ${error.response.status}`);
+        console.log(`실패 코드: ${error.response.status}`);
         console.log(error.response.data);
       }
     })
@@ -40,7 +36,7 @@ export function getArticle(id) {
     .catch((error) => {
       console.error('실패! :', error.message);
       if (error.response) {
-        console.log(`${error.response.status}`);
+        console.log(`실패 코드: ${error.response.status}`);
         console.log(error.response.data);
       }
     })
@@ -59,7 +55,7 @@ export function createArticle(articleData) {
     .catch((error) => {
       console.error('실패!!!', error.message);
       if (error.response) {
-        console.log(`${error.response.status}`);
+        console.log(`실패 코드: ${error.response.status}`);
         console.log(`${error.response.data}`);
       }
     })
@@ -77,7 +73,7 @@ export function patchArticle(id, articleData) {
     .catch((error) => {
       console.error(`실패!!!`, error.message);
       if (error.response) {
-        console.log(`${error.response.status}`);
+        console.log(`실패 코드: ${error.response.status}`);
         console.log(`${error.response.data}`);
       }
     })
@@ -94,7 +90,7 @@ export function deleteArticle(id) {
       return response.data;
     })
     .catch((error) => {
-      console.log(`${error.response.status}`);
+      console.log(`실패 코드: ${error.response.status}`);
       console.log(`${error.response.data}`);
     })
     .finally(() => {

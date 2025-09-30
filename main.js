@@ -1,7 +1,13 @@
 import Product from './Product.js';
 import ElectronicProduct from './ElectronicProduct.js';
 import Article from './Article.js';
-import { createArticle, getArticle, getArticleList } from './ArticleService.js';
+import {
+  createArticle,
+  getArticle,
+  getArticleList,
+  patchArticle,
+  deleteArticle,
+} from './ArticleService.js';
 
 const powerNeo = new ElectronicProduct(
   '네오 건전지',
@@ -14,9 +20,6 @@ const powerNeo = new ElectronicProduct(
 
 console.log('=====테스트 시작=====');
 
-//-------------- 포스트 한것 구하기--------------4715, 4718
-// getArticle(id);
-
 /* ----------------고양이 포스트하기----------------------
 const articleData = {
   title: '고양이',
@@ -28,7 +31,14 @@ createArticle(articleData).then((createdArticle) => {
   // 성공 시 게시글 아이디 얻어오기
   console.log(`성공! ID: ${createdArticle.id}`);
 });
----------------------------------------------------------
 */
 
-// getArticleList(1, 10, '고양이');
+//-------------- 포스트 한것 구하기--------------4715, 4718
+// getArticle(id);
+
+//--------------리스트 가져오기--------------
+getArticleList(1, 10, '고양이');
+
+// ---------------patch-----------------4718
+
+//-----------------delete--------------4718
