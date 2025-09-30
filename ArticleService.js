@@ -87,7 +87,7 @@ export function patchArticle(id, articleData) {
 }
 
 //-----------------deleteArticle----------------------
-export function deleteArticle() {
+export function deleteArticle(id) {
   return axios
     .delete(`${URL}/articles/${id}`)
     .then((response) => {
