@@ -13,8 +13,8 @@ async function getProductList(page, pageSize, keyword) {
         keyword,
       },
     });
-    const productData = response.data;
-    console.log('성공!: ', productData); //내용 출력
+    const productData = response.data.products;
+    console.log('성공!: ', response.data); //내용 출력
     return productData; //다른곳에서 쓸 수 있게 리턴해준다. ?
   } catch (error) {
     console.error('실패!!!: ', error.message);

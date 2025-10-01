@@ -54,27 +54,60 @@ const powerNeo = new ElectronicProduct(
 
 console.log('=====테스트 시작=====');
 
-// ==== 패치,포스트 할 게시글 =====
-const myProduct = new Product(
-  '오케스트리온',
-  '원하는 노래를 재생할 수 있는 자동연주 상자.',
-  300000,
-  ['가구', '전자제품'],
-  ['https://upload2.inven.co.kr/upload/2016/12/30/data/i13299477557.png']
-);
-
 //============ getProductList (page, pageSize, keyword) ==========
-getProductList(1, 10, '');
+// getProductList(1, 10, '');
 
 //======= 겟 프로덕트(ID) =======
-getProduct(1234);
+// getProduct(1234);
 
 //======= 프로덕트 생성 ========
-createProduct(myProduct);
+// createProduct(myProduct);
 
 //============== 프로덕트 패치 ==============
-patchProduct(2407, myProduct);
+// patchProduct(2407, myProduct);
 
 //======= delete product ======= 2405
-deleteProduct();
-deleteProduct();
+// deleteProduct();
+// deleteProduct();
+
+const products = [];
+
+async function 테스트() {
+  try {
+    const temp = await getProductList(1, 10, '');
+    temp.forEach((item) => {
+      if (item.tags && item.tags.includes('전자제품')) {
+        instance = new ElectronicProduct(item);
+      } else {
+        instance = new Product(item);
+      }
+      products.push(Instance);
+    });
+  } catch (error) {
+    console.error('실패!!!: ', error.message);
+  } finally {
+    console.log('========= 테스트 끝 =======');
+  }
+}
+
+테스트();
+
+/*
+논리는 대충 const products = [] 에 모든 결과물을 넣게됨.
+
+const temp = await getProductList(1,10,'')
+  
+해서 temp [] 에 들어간 값들을 ForEach문으로 하나하나 돌면서
+
+if (item.tags && item.tags.includes('전자제품')) {
+
+const eletronicProdutcs 에 넣어줌
+
+이후에 한번 더 이프문으로
+
+if (electronicProducts) { products.push(new ElectronicProduct(item))
+}else { products.push(new Product (item))} 
+
+마지막에 console.log('상황확인', products)
+
+*/
