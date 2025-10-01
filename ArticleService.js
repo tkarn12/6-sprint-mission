@@ -10,13 +10,13 @@ function getArticleList(page, pageSize, keyword) {
   return axios
     .get(finURL)
     .then((response) => {
-      console.log(`성공!`, response.data);
+      console.log(`성공!: `, response.data);
     })
     .catch((error) => {
-      console.error('실패! :', error.message);
+      console.error('실패!!! :', error.message);
       if (error.response) {
-        console.log('에러 코드:', error.response.status);
-        console.log('에러 내용:', error.response.data);
+        console.log('에러 코드: ', error.response.status);
+        console.log('에러 내용: ', error.response.data);
       }
     })
     .finally(() => {
@@ -30,14 +30,14 @@ function getArticle(ID) {
   return axios
     .get(`${baseURL}/articles/${ID}`)
     .then((response) => {
-      console.log('성공! :', response.data);
+      console.log('성공!: ', response.data);
       return response.data;
     })
     .catch((error) => {
-      console.error('실패! :', error.message);
+      console.error('실패!!!: ', error.message);
       if (error.response) {
-        console.log('에러 코드:', error.response.status);
-        console.log('에러 내용:', error.response.data);
+        console.log('에러 코드: ', error.response.status);
+        console.log('에러 내용: ', error.response.data);
       }
     })
     .finally(() => {
@@ -51,13 +51,13 @@ function createArticle(articleData) {
   return axios
     .post(baseURL + '/articles', articleData)
     .then((response) => {
-      return console.log(`성공!!:`, response.data);
+      return console.log(`성공!: `, response.data);
     })
     .catch((error) => {
-      console.error('실패!!!', error.message);
+      console.error('실패!!!: ', error.message);
       if (error.response) {
-        console.log('에러 코드:', error.response.status);
-        console.log('에러 내용:', error.response.data);
+        console.log('에러 코드: ', error.response.status);
+        console.log('에러 내용: ', error.response.data);
       }
     })
     .finally(() => {
@@ -70,13 +70,13 @@ function patchArticle(ID, articleData) {
   return axios
     .patch(`${baseURL}/articles/${ID}`, articleData)
     .then((response) => {
-      return console.log(`성공!!:`, response.data);
+      return console.log(`성공!: `, response.data);
     })
     .catch((error) => {
-      console.error(`실패!!!`, error.message);
+      console.error(`실패!!!: `, error.message);
       if (error.response) {
-        console.log('에러 코드:', error.response.status);
-        console.log('에러 내용:', error.response.data);
+        console.log('에러 코드: ', error.response.status);
+        console.log('에러 내용: ', error.response.data);
       }
     })
     .finally(() => {
@@ -89,11 +89,14 @@ function deleteArticle(ID) {
   return axios
     .delete(`${baseURL}/articles/${ID}`)
     .then((response) => {
-      return console.log(`성공!!:`, response.data);
+      return console.log(`성공!: `, response.data);
     })
     .catch((error) => {
-      console.log('에러 코드:', error.response.statu);
-      console.log('에러 내용:', error.response.data);
+      console.error(`실패!!!: `, error.message);
+      if (error.response) {
+        console.log('에러 코드: ', error.response.status);
+        console.log('에러 내용: ', error.response.data);
+      }
     })
     .finally(() => {
       console.log(`=== 게시물 삭제 실험 끝===`);
