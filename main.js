@@ -51,4 +51,4 @@ console.log('=====테스트 시작=====');
 // getProductList(1, 10, '');
 
 //======= 겟 프로덕트(ID) =======
-//getProduct()
+getProduct(2382);

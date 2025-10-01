@@ -28,8 +28,9 @@ async function getProductList(page, pageSize, keyword) {
 
 async function getProduct(ID) {
   try {
-    const response = await axios.get(baseURL + '/products' + ID);
+    const response = await axios.get(baseURL + '/products/' + ID);
     const productData = response.data;
+    console.log('성공!!!:', productData);
     return productData;
   } catch (error) {
     console.error('실패!!!:', error.message);
