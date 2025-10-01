@@ -19,8 +19,8 @@ async function getProductList(page, pageSize, keyword) {
   } catch (error) {
     console.error('실패!!! :', error.message);
     if (error.response) {
-      console.log('에러 코드:', error.response.status);
-      console.log('에러 내용:', error.response.data);
+      console.log('에러 코드: ', error.response.status);
+      console.log('에러 내용: ', error.response.data);
     }
   } finally {
     console.log(`======겟 프로덕트 테스트 완료======`);
@@ -38,8 +38,8 @@ async function getProduct(ID) {
   } catch (error) {
     console.error('실패!!!:', error.message);
     if (error.response) {
-      console.log('에러 코드:', error.response.status);
-      console.log('에러 내용:', error.response.data);
+      console.log('에러 코드: ', error.response.status);
+      console.log('에러 내용: ', error.response.data);
     }
   } finally {
     console.log('======== 겟 프로닥 실험 끝 ========');
@@ -55,8 +55,8 @@ async function createProduct(myProduct) {
   } catch (error) {
     console.error('실패!!!:', error.message);
     if (error.response) {
-      console.log('에러 코드:', error.response.status);
-      console.log('에러 내용:', error.response.data);
+      console.log('에러 코드: ', error.response.status);
+      console.log('에러 내용: ', error.response.data);
     }
   } finally {
     console.log('======== 생성 실험 끝 ========');
@@ -89,8 +89,8 @@ async function deleteProduct(ID) {
   } catch (error) {
     console.error('실패!!!:', error.message);
     if (error.response) {
-      console.log('에러 코드:', error.response.status);
-      console.log('에러 내용:', error.response.data);
+      console.log('에러 코드: ', error.response.status);
+      console.log('에러 내용: ', error.response.data);
     }
   } finally {
     console.log('======= 게시글 삭제 실험 끝 ========');
