@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Product from './Product';
 
 const baseURL = `https://panda-market-api-crud.vercel.app`; // /products/   ${baseURL}/products
 

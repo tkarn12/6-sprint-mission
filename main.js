@@ -8,7 +8,9 @@ import {
   patchArticle,
   deleteArticle,
 } from './ArticleService.js';
-import { getProductList } from './productService.js';
+import { getProductList } from './ProductService.js';
+
+//------------------------------------------------------------
 
 const powerNeo = new ElectronicProduct(
   '네오 건전지',
@@ -45,4 +47,4 @@ getArticleList(1, 10, '고양이');
 // deleteArticle(4736);
 
 console.log('=====테스트 시작=====');
-// getProductList(1, 10, '');
+getProductList(1, 10, '');
