@@ -17,15 +17,7 @@ import {
 } from './ProductService.js';
 
 //------------------------------------------------------------
-
-const powerNeo = new ElectronicProduct(
-  '네오 건전지',
-  '평범한 건전지이다...',
-  5500,
-  [],
-  [],
-  0
-);
+console.log('=====테스트 시작=====');
 
 //----올릴 포스트/패치 내용 쓰는 곳----
 // const articleData = {
@@ -47,12 +39,10 @@ const powerNeo = new ElectronicProduct(
 // ---------------patch 하기-----------------4718
 // patchArticle(4715, articleData);
 
-//-----------------delete--------------4734, 35, 36
+//-------------------------------------------------delete-------------------------------------------------------------------4734, 35, 36
 // deleteArticle(4734);
 // deleteArticle(4735);
 // deleteArticle(4736);
-
-console.log('=====테스트 시작=====');
 
 //============ getProductList (page, pageSize, keyword) ==========
 // getProductList(1, 10, '');
@@ -61,6 +51,13 @@ console.log('=====테스트 시작=====');
 // getProduct(1234);
 
 //======= 프로덕트 생성 ========
+// const myProduct = new Product(
+//   '낡은 이어폰',
+//   '언제 산 건지 모를 이어폰이다...',
+//   '5000',
+//   ['전자제품'],
+//   []
+// );
 // createProduct(myProduct);
 
 //============== 프로덕트 패치 ==============
@@ -70,6 +67,7 @@ console.log('=====테스트 시작=====');
 // deleteProduct();
 // deleteProduct();
 
+//======== instance 어쩌구 저쩌구 ==================
 const products = [];
 
 async function 테스트() {

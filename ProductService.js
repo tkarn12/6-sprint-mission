@@ -13,7 +13,8 @@ async function getProductList(page, pageSize, keyword) {
         keyword,
       },
     });
-    const productData = response.data.list;
+    const productData = response.data.list; //list: [{...}, {...}, {...}] => list 자리가 products라면 response.data.products
+    //아직 원리를 제대로 이해하지 못했다.
     console.log('성공!: ', response.data); //내용 출력
     return productData; //다른곳에서 쓸 수 있게 리턴해준다. ?
   } catch (error) {
