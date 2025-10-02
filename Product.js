@@ -3,7 +3,7 @@ export default class Product {
     this.name = name;
     this.description = description;
     this.price = price;
-    this.tags = tags || [];
+    this.tags = tags || []; //undefined 값 방지 || [] / 0
     this.images = images || [];
     this.favoriteCount = favoriteCount || 0;
   }
