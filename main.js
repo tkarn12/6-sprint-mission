@@ -70,7 +70,7 @@ console.log('=====테스트 시작=====');
 //======== instance 어쩌구 저쩌구 ==================
 const products = [];
 
-async function 테스트() {
+async function productsItems() {
   try {
     let temp = [];
     temp = await getProductList(1, 10, '');
@@ -106,4 +106,4 @@ async function 테스트() {
   }
 }
 
-테스트();
+productsItems();
