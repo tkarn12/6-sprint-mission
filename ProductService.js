@@ -65,9 +65,9 @@ async function createProduct(myProduct) {
 }
 
 //========= 프로덕트 패치하기 ==========
-async function patchProduct(ID, myproduct) {
+async function patchProduct(ID, myProduct) {
   try {
-    const response = await axios.patch(`${baseURL}/products/${ID}`, myproduct);
+    const response = await axios.patch(`${baseURL}/products/${ID}`, myProduct);
     const productData = response.data;
     console.log('성공!: ', productData);
   } catch (error) {
