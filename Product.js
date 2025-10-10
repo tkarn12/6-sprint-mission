@@ -29,7 +29,9 @@ export class Product{
      * -> No parameter, just put a formula.
      */
     favorite(){
-        let liked = this.favoriteCount + 1;
-        return liked;
+      return this.favoriteCount += 1;
+      //복합할당연산자 사용해서 아래 코드를 단순하게 만듦.
+      /*let liked = this.favoriteCount + 1;
+      return liked;*/
     }
 }

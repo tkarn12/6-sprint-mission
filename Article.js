@@ -39,7 +39,10 @@ class Article{
     this.createdAt=new Date();
   }
   like(){
-    let addLike = this.likeCount +1;
-    return addLike;
+    return this.likeCount++;
+    //복합 할당 연산자(Compound assignment operators) 사용으로 코드 단순화 251010 7:13
+    //return this.likeCount++ == this.likeCount +=1 == (this.likeCount = this.likeCount +1)
+    /*let addLike = this.likeCount +1;
+    return addLike;*/
   }
 }
