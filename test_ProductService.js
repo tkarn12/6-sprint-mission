@@ -11,18 +11,16 @@ let product;
 //------------------------------- getProductList(params)
 const params = {
   page: 1,
-  pageSize: 5,
+  pageSize: 3,
   orderBy: 'recent',
-  //keyword: '꼴랑꼴랑',
+  //keyword: '전자제품',
 };
 product = await getProductList(params);
 //product = await getProductList();
 
-//------------------------------- getProduct(id)
-//product = await getProduct(2460);
+//product = await getProduct(2459);
 //product = await getProduct(1); // error test: 404 file not found
 
-//------------------------------- createProduct(productData)
 const productData = {
   name: 'iPhone 17 Pro',
   description: '15.9cm, Super Retina XDR 디스플레이, 8배 광학 줌 전면 카메라',
@@ -34,11 +32,9 @@ const productData = {
 
 //product = await createProduct(productData);
 
-//------------------------------- patchProduct(id, productData)
-//product = await patchProduct(2517, productData);
+//product = await patchProduct(2550, productData);
 
-//------------------------------- deleteProduct(id)
-//product = await deleteProduct(2519);
+//product = await deleteProduct(2550);
 
 if (product) console.log(product);
 console.log('');

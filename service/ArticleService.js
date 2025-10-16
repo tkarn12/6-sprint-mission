@@ -39,35 +39,28 @@ export async function getArticle(id) {
         return response.json();
       }
     })
-    .catch(() => console.log(`No article ${id} exists`))
+    .catch(() => console.log(`No article_${id} exists`))
     .finally(() => console.log(''));
 }
 
 export async function createArticle(articleData) {
-  const today = new Date();
-  const timeStr = today.toISOString();
-
-  return (
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(articleData),
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(articleData),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        printError(response);
+        throw new Error('createArticle()');
+      } else {
+        console.log(response.status);
+        return response.json();
+      }
     })
-      .then((response) => {
-        if (!response.ok) {
-          printError(response);
-          throw new Error('createArticle()');
-        } else {
-          console.log(response.status);
-          return response.json();
-        }
-      })
-      .then((data) => ({ ...data, createdAt: timeStr }))
-      // real createdAt, which is different from the stored value
-      .catch(() => console.log('No article created'))
-  );
+    .catch(() => console.log('No article created'));
 }
 
 export async function patchArticle(id, articleData) {

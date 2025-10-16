@@ -27,11 +27,9 @@ export async function getProduct(id) {
 
 export async function createProduct(productData) {
   const today = new Date();
-  const timeStr = today.toISOString();
   try {
     const response = await instance.post(`/products`, productData);
-    return { ...response.data, createdAt: timeStr };
-    //return response.data;
+    return response.data;
   } catch (error) {
     printError(error);
   }

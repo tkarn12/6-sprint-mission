@@ -1,11 +1,11 @@
 import { getProductList } from './service/ProductService.js';
 import Product from './lib/ProductClass.js';
 import ElectronicProduct from './lib/ElectronicProductClass.js';
-import { StrFuns, print } from '../lib/myFuns.js'; // import the functions defined by babo
+import { StrFuns, print } from '../lib/myFuns.js'; // my own functions
 
+// query parameters: only 4 allowed
 const params = {
-  // parameters for data retrieval
-  page: 1, // only 4 paramters are allowed
+  page: 1,
   pageSize: 10,
   orderBy: 'recent',
   //keyword: '스웨터',
@@ -17,21 +17,23 @@ const products = await getProductList(params);
 // print(products);
 // print('-----------------------------------');
 
-let eProductInstance = []; // an array for Product Instances
-let productInstance = []; // an array for ElectronicProduct Instances
-let tagStr = '';
+let eProductInstance = []; // an array for ElectronicProduct Instances
+let productInstance = []; // an array for Product Instances
+let tagStr = ''; // a string for tags
 
-let nEP = 0; // counter for ElectronicProduct Instancess
-let nP = 0; // counter for Product Instances
+let nEP = 0; // a counter for ElectronicProduct Instancess
+let nP = 0; // a counter for Product Instances
 
-print('Sorting...'); // sort retreived products by a tag '전자제품'
+print('Sorting...');
 print('-----------------------------------');
 
 for (let i = 0; i < products.length; i++) {
+  // 테그가 양식없이 마구 들어가 있어서, 테그를 공백없는 한개의 스트링으로 전환
+  // 이 부분은 태그의 양식이 확정되면 없애도 될 듯
   tagStr = StrFuns.trimAll([...products[i].tags].join(''));
 
-  // sort by the tag: '전자제품' or '전자 제품'
-  if (tagStr.includes('전자제품') || tagStr.includes('전자')) {
+  // sort by the tag: '전자제품'
+  if (tagStr.includes('전자제품')) {
     eProductInstance.push(new ElectronicProduct(products[i]));
     print(`${products[i].id}: 전자제품 <- ${products[i].tags}`);
     ++nEP;

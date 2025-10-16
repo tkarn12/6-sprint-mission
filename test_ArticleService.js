@@ -10,19 +10,19 @@ import {
 const params = {
   page: 1,
   pageSize: 3,
-  //orderBy: 'recent',
-  //keyword: 'chung',
+  orderBy: 'recent',
+  //keyword: '게시글',
 };
 
 let articles;
 articles = await getArticleList(params); // retrieve articles by params
 //articles = await getArticleList();
 
-//articles = await getArticle(4938); // retrieve an article by id
+//articles = await getArticle(5022); // retrieve an article by id
 //articles = await getArticle(10); // retrieve an article by id - error test
 
 const articleData = {
-  title: 'test4: createArticle() by nobody',
+  title: 'test5: createArticle() by nobody',
   content: '노드백엔드 6기 스프린트 미션2 - API serviceS',
   image: 'https://example.com/...',
   //writer: 'noname',
@@ -30,9 +30,9 @@ const articleData = {
 
 //articles = await createArticle(articleData); // create a new article
 
-//articles = await patchArticle(4938, articleData); // modify an existing article
+//articles = await patchArticle(5023, articleData); // modify an existing article
 
-//articles = await deleteArticle(4938); // delete an existing article
+//articles = await deleteArticle(5024); // delete an existing article
 
 if (articles) console.log(articles);
 console.log('');
