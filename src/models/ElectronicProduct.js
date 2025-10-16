@@ -1,6 +1,6 @@
 import { Product } from "./Product.js";
 
-class ElectronicProduct extends Product {
+export class ElectronicProduct extends Product {
   constructor(
     name,
     description,
