@@ -4,13 +4,13 @@ import {
   createArticle,
   patchArticle,
   deleteArticle,
-} from './service/Service_Article.js';
+} from './service/ArticleService.js';
 
 // query parameters for getArticleList()
 const params = {
   page: 1,
   pageSize: 3,
-  orderBy: 'recent',
+  //orderBy: 'recent',
   //keyword: 'chung',
 };
 

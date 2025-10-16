@@ -1,6 +1,6 @@
-import { getProductList } from './service/Service_Product.js';
-import Product from './lib/Class_Product.js';
-import ElectronicProduct from './lib/Class_ElectronicProduct.js';
+import { getProductList } from './service/ProductService.js';
+import Product from './lib/ProductClass.js';
+import ElectronicProduct from './lib/ElectronicProductClass.js';
 import { StrFuns, print } from '../lib/myFuns.js'; // import the functions defined by babo
 
 const params = {

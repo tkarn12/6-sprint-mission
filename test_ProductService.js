@@ -4,7 +4,7 @@ import {
   createProduct,
   patchProduct,
   deleteProduct,
-} from './service/Service_Product.js';
+} from './service/ProductService.js';
 
 let product;
 
