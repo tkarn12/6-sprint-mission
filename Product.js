@@ -21,6 +21,6 @@ export class Product{
     // favorite이라는 이름을 가진 method 정의
     favorite(){
       return this.favoriteCount += 1;
-      //복합할당연산자 사용해서 코드 단순하게 만듦.
+      //복합할당연산자 사용해서 코드 단순하게 만듦. this.favoriteCount ++; 형태로도 가능
     }
 }

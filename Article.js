@@ -1,4 +1,4 @@
-// In JS, the class recommended in seperate js files.
+// In JS, the class recommended to saved in each of js files.
 //JS에서는 클래스를 각각 다른 파일에 저장해서 사용하길 권장한다.
 /* Conditions:
 class 키워드를 이용해서 Article 클래스를 만들어 주세요.

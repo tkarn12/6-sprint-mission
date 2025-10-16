@@ -11,6 +11,7 @@ export class ElectronicProducts extends Product {
     name, description, price, tags, images, favoriteCount, manufacturer
   ){
     super(name, description, price, tags, images, favoriteCount);
+    // product 클래스 생성자 상속을 위해 super가 필수임
     this.manufacturer=manufacturer;
   }
 }

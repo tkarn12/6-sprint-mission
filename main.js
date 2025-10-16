@@ -11,7 +11,7 @@ getArticleList({ page: 1, pageSize: 5, keyword: 'Post' })
         console.error(error);
     })
 
-getArticle(4918)
+getArticle(5021)
     .then(data => {
         console.log(data);
     })
@@ -31,7 +31,7 @@ createArticle({
         console.error(error);
     })
 
-patchArticle(4918, { title: 'Updated Title' })
+patchArticle(5021, { title: 'Updated Title' })
     .then(data => {
         console.log(data);
     })
@@ -39,7 +39,7 @@ patchArticle(4918, { title: 'Updated Title' })
         console.error(error);
     })
 
-deleteArticle(4915)
+deleteArticle(5021)
     .then(data => {
         console.log(data);
         // return data; return만 넣었더니 콘솔에 undefined고 뭐고 아무것도 뜨지 않음 251002 12:47
@@ -51,10 +51,10 @@ deleteArticle(4915)
 
 // ========== ProductService ===========
 let data = await getProductList({page:1, pageSize:5, keyword:''});
-let data22 = await getProduct(2460);
+let data22 = await getProduct(2545);
 let data33 = await createProduct({name: '버티컬마우스', description:'2025ver', price:1000000, tags:"전자제품", images:`https://placehold.co/200x200`});
-let data4 = await patchProduct(2484, {tags: ["전자제품", "사무용품"]});
-let data5 = await deleteProduct(2482);
+let data4 = await patchProduct(2545, {tags: ["전자제품", "사무용품"]});
+let data5 = await deleteProduct(2545);
 
 console.log(`========== Call productService functions ==========`);
 console.log(data);  //data 출력 잘 됨 8:02 251002

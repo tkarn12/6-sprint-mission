@@ -6,7 +6,7 @@
 -- export를 활용해 주세요.
 -- ProductService.js 파일 Product API 관련 함수들을 작성해 주세요.
 -- ArticleService.js 파일에 Article API 관련 함수들을 작성해 주세요.
-- 이외의 코드들은 모두 main.js 파일에 import를 활용해서 작성해 주세요.
+- 이외의 코드들은 모두 main.js 파일에 import를 활용해서 작성.
 */
 import axios from "axios";
 import { Product } from "./Product.js";

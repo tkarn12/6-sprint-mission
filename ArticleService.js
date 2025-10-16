@@ -3,7 +3,8 @@ const API_URL = 'https://panda-market-api-crud.vercel.app';
 export function getArticleList({ page, pageSize, keyword }) {
   const params = new URLSearchParams({ page, pageSize, keyword});
   const url = `${API_URL}/articles/?${params}`;
-  
+
+  //get method는 명시적으로 method: POST와 같이 설정하지 않아도 됨. 기본이 get 방식이기 때문
   return fetch(url)
     .then(response => {
       if (!response.ok){
