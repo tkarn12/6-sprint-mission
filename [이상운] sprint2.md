@@ -4,7 +4,7 @@
 
 ## 요구사항
 
-### API 정의서:
+### API 정의서
 
 - [https://panda-market-api-crud.vercel.app/docs](https://panda-market-api-crud.vercel.app/docs)
 

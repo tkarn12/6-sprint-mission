@@ -64,7 +64,7 @@ npm install
 │   └── ElectronicProduct.mjs   # Electronic Product 데이터 모델
 └── lib/
     ├── axios.js                # 설정된 Axios 인스턴스
-    ├── constants.js            # 상수 (API 기본 URL 등)
+    ├── constants.js            # 상수 (API 기본 URL)
     └── dummy.js                # 테스트용 더미 데이터
 ```
 
@@ -111,8 +111,6 @@ npm install
 - 헬퍼: `makeArticle(data)` - Article 인스턴스 생성, 로컬 데이터(전체)와 서버 데이터(최소)를 분리
 - 에러 처리: HTTP 상태 코드 및 네트워크 오류 로깅
 
----
-
 **ProductService.mjs**
 
 - 비동기 작업에 `async/await` 패턴 사용
@@ -121,7 +119,9 @@ npm install
 - 헬퍼: `makeProduct(data)` - "전자제품" 태그가 있는 항목은 ElectronicProduct 인스턴스 생성, 그 외는 Product 인스턴스 생성하는 팩토리 함수
 - API로 전송하기 전에 요청 페이로드에서 `favoriteCount`와 `manufacturer` 제거
 
-### 주요 구현 세부사항
+---
+
+## 주요 구현 세부사항
 
 1. **클래스 인스턴스화 패턴**: 두 서비스 모두 API 응답에서 클래스 객체를 인스턴스화
 

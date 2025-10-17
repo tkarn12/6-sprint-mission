@@ -3,19 +3,12 @@ import { BASE_URL } from '../lib/constants.js';
 import Article from '../models/Article.mjs';
 
 // 아티클 리스트 가져오기
-function getArticleList(page, pageSize, keyword) {
+function getArticleList(params) {
   return axios
-    .get(`${BASE_URL}/articles`, {
-      params: {
-        page,
-        pageSize,
-        keyword,
-      },
-    })
+    .get(`${BASE_URL}/articles`, { params })
     .then((res) => {
       console.log(`${res.statusText}! 게시물을 가져왔어요!`);
       console.log(res.data.list);
-      return res;
     })
     .catch((error) => {
       if (error.response) {
@@ -39,7 +32,6 @@ function getArticle(articleId) {
     .then((res) => {
       console.log(`${res.statusText}! 게시물을 가져왔어요!`);
       console.log(res.data);
-      return res;
     })
     .catch((error) => {
       if (error.response) {
@@ -66,7 +58,6 @@ function createArticle(data) {
     .then((res) => {
       console.log(`${res.statusText}! 게시물을 생성했습니다.`);
       console.log(res.data);
-      return res;
     })
     .catch((error) => {
       if (error.response) {
@@ -93,7 +84,6 @@ function patchArticle(articleId, data) {
     .then((res) => {
       console.log(`${res.statusText}! ${articleId}번째 게시물을 수정했습니다.`);
       console.log(res.data);
-      return res;
     })
     .catch((error) => {
       if (error.response) {
@@ -112,7 +102,7 @@ function patchArticle(articleId, data) {
 
 // 아티클 삭제하기
 function deleteArticle(articleId) {
-  return axios
+  axios
     .delete(`${BASE_URL}/articles/${articleId}`)
     .then((res) => {
       console.log(`${res.statusText}! ${articleId}번째 게시물을 삭제했습니다.`);
@@ -147,7 +137,6 @@ function makeArticle(data) {
   console.log(toLocal);
   const serverData = new Article(data.title, data.content, data.image);
   const toServer = serverData.toServerData();
-  //console.log(toServer);
   return toServer;
 }
 

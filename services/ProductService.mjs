@@ -2,17 +2,13 @@ import axios from '../lib/axios.js';
 import Product from '../models/Product.mjs';
 import ElectronicProduct from '../models/ElectronicProduct.mjs';
 
-//const API_URL = 'https://panda-market-api-crud.vercel.app/products';
 const products = []; // 프로덕트 리스트 배열
 
 // 상품정보 리스트 가져오기
-async function getProductList(page, pageSize, keyword) {
+async function getProductList(params) {
   try {
-    const res = await axios.get('/products', {
-      params: { page, pageSize, keyword, orderBy: 'recent' },
-    });
+    const res = await axios.get('/products', { params });
     console.log(`${res.statusText}! 게시물 리스트를 가져왔어요!`);
-    // console.log(res.data.list.length);
 
     // 인스턴스 리스트 만들기
     for (const receiveData of res.data.list) {
@@ -38,13 +34,11 @@ async function getProduct(productId) {
   try {
     const res = await axios.get(`/products/${productId}`);
     console.log(`${res.statusText}! 게시물을 가져왔어요!`);
-    //console.log(res.data);
 
     // 인스턴스 만들기
     const productInstance = makeProduct(res.data);
     products.push(productInstance);
     console.log(products);
-    //console.log(products.map((product) => product.toJSON()));
     return products;
   } catch (error) {
     if (error.response) {
@@ -113,7 +107,7 @@ async function deleteProduct(productId) {
     } else {
       console.error(`Network error:`, error.message);
     }
-    //throw error;
+    throw error;
   } finally {
     console.log('Finished!');
   }
