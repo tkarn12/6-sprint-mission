@@ -2,19 +2,7 @@ import { getArticleList, getArticle, createArticle } from './ArticleService.js';
 import { getProduct, getProductList, PostProduct, patchProduct, deleteProduct } from './ProductService.js';
 import { Product } from './product.js';
 import { ElectronicProduct } from './ElectronicProduct.js';
-
-class Article {
-  constructor(title, content, writer) {
-    this.title = title;
-    this.content = content;
-    this.writer = writer;
-    this.likeCount = 0;
-    this.createdAt = new Date();
-  }
-  like() {
-    this.likeCount += 1;
-  }
-}
+import { Article } from './Article.js';
 
 const newArticleData = new Article('BH new Article', 'This is content', 'BlueHamster');
 const Products = [];
@@ -79,9 +67,9 @@ async function CreateProduct(name, decription, prcie, tags, images, manufacturer
 }
 
 async function DoTest() {
-  // console.log('Article 관련 함수 시작');
-  // await DoItArticleThings();
-  // console.log('Article 관련 함수 종료');
+  console.log('Article 관련 함수 시작');
+  await DoItArticleThings();
+  console.log('Article 관련 함수 종료');
   console.log('Product 관련 함수 시작');
   await DoItProductThings();
   console.log('Product 관련 함수 종료');
