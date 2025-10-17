@@ -150,5 +150,3 @@ async function allTest() {
   console.log("");
   console.log("전체 Test 완료");
 }
-
-// allTest();
