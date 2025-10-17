@@ -1,24 +1,3 @@
-// 초기 await 버전
-// export async function getArticleList(page = '1', pageSize = '10', keyword = '') {
-//   try {
-//     const data = await fetch(
-//       `https://panda-market-api-crud.vercel.app/articles?page=${page}&pageSize=${pageSize}&orderBy=recent&keyword=${keyword}`
-//     );
-//     const body = await data.json();
-//     console.log('=====getArticleListData=====');
-//     if (!data.ok) {
-//       console.error(`전송 상태 에러: ${data.status}`);
-//       throw new Error(`Error`);
-//     }
-//     console.log(body);
-//     console.log('=====getArticleListData End=====');
-//     return body;
-//   } catch (error) {
-//     console.error(error);
-//     throw new Error('에러 발생');
-//   }
-// }
-
 export function getArticleList(page = '1', pageSize = '10', keyword = '') {
   console.log('=====getArticleListData=====');
   return fetch(
