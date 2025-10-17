@@ -3,19 +3,6 @@ import { getProduct, getProductList, PostProduct, patchProduct, deleteProduct } 
 import { Product } from './product.js';
 import { ElectronicProduct } from './ElectronicProduct.js';
 
-class Article {
-  constructor(title, content, writer) {
-    this.title = title;
-    this.content = content;
-    this.writer = writer;
-    this.likeCount = 0;
-    this.createdAt = new Date();
-  }
-  like() {
-    this.likeCount += 1;
-  }
-}
-
 const newArticleData = new Article('BH new Article', 'This is content', 'BlueHamster');
 const Products = [];
 async function DoItArticleThings() {
@@ -46,7 +33,6 @@ async function DoItProductThings() {
   const updatedProduct = await patchProduct(product.id, product);
   const isDeleted = await deleteProduct(product.id);
   console.log('삭제 완료:', isDeleted);
-
   const productList = await getProductList(1, 10, '');
   console.log(productList);
 
