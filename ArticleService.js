@@ -1,11 +1,11 @@
-import { Article } from "./article.js";
+import { Article } from './article.js';
 
 //getArticleList()
-export function getArticleList(page, pageSize, keyword = "") {
-  const url = new URL("https://panda-market-api-crud.vercel.app/articles");
-  url.searchParams.append("page", page);
-  url.searchParams.append("pageSize", pageSize);
-  url.searchParams.append("keyword", keyword);
+export function getArticleList(page, pageSize, keyword = '') {
+  const url = new URL('https://panda-market-api-crud.vercel.app/articles');
+  url.searchParams.append('page', page);
+  url.searchParams.append('pageSize', pageSize);
+  url.searchParams.append('keyword', keyword);
 
   const res = fetch(url)
     .then((res) => {
@@ -19,9 +19,10 @@ export function getArticleList(page, pageSize, keyword = "") {
     })
     .catch((e) => {
       console.error(e);
+      throw new Error('fetch 오류');
     })
     .finally(() => {
-      console.log("함수 종료");
+      console.log('함수 종료');
     });
 }
 
@@ -39,23 +40,24 @@ export function getArticle(id) {
     })
     .catch((e) => {
       console.error(e);
+      throw new Error('fetch 오류');
     })
     .finally(() => {
-      console.log("함수 종료");
+      console.log('함수 종료');
     });
 }
 
 //createArticle()
 export function createArticle(title, content, image) {
-  fetch("https://panda-market-api-crud.vercel.app/articles", {
-    method: "POST",
+  fetch('https://panda-market-api-crud.vercel.app/articles', {
+    method: 'POST',
     body: JSON.stringify({
       title: title,
       content: content,
       image: image,
     }),
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   })
     .then((res) => {
@@ -69,23 +71,24 @@ export function createArticle(title, content, image) {
     })
     .catch((e) => {
       console.error(e);
+      throw new Error('fetch 오류');
     })
     .finally(() => {
-      console.log("함수 종료");
+      console.log('함수 종료');
     });
 }
 
 //patchArticle()
 export function patchArticle(id, title, content, image) {
   fetch(`https://panda-market-api-crud.vercel.app/articles/${id}`, {
-    method: "PATCH",
+    method: 'PATCH',
     body: JSON.stringify({
       title: title,
       content: content,
       image: image,
     }),
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   })
     .then((res) => {
@@ -99,15 +102,16 @@ export function patchArticle(id, title, content, image) {
     })
     .catch((e) => {
       console.error(e);
+      throw new Error('fetch 오류');
     })
     .finally(() => {
-      console.log("함수 종료");
+      console.log('함수 종료');
     });
 }
 //deleteArticle()
 export function deleteArticle(id) {
   fetch(`https://panda-market-api-crud.vercel.app/articles/${id}`, {
-    method: "DELETE",
+    method: 'DELETE',
   })
     .then((res) => {
       if (!res.ok) {
@@ -120,8 +124,9 @@ export function deleteArticle(id) {
     })
     .catch((e) => {
       console.error(e);
+      throw new Error('fetch 오류');
     })
     .finally(() => {
-      console.log("함수 종료");
+      console.log('함수 종료');
     });
 }

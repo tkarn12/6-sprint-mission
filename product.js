@@ -41,7 +41,7 @@ export class Product {
   //   return this.#price;
   // }
 
-  get rags() {
+  get tags() {
     return this.#tags;
   }
   // getTags() {

@@ -16,7 +16,7 @@ export class ElectronicProduct extends Product {
     this.#manufacturer = manufacturer;
   }
 
-  get manufavturer() {
+  get manufacturer() {
     return this.#manufacturer;
   }
   // getManufacturer() {
